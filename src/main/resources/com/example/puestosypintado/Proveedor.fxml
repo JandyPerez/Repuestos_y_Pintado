@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.puestosypintado.controladores.ProveedorController">
+    <children>
+        <SplitPane dividerPositions="0.45" prefHeight="500.0" prefWidth="850.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                    <children>
+                        <TableView fx:id="tvProveedores" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <columns>
+                                <TableColumn fx:id="colIdProv" prefWidth="50.0" text="ID" />
+                                <TableColumn fx:id="colEmpresaProv" prefWidth="130.0" text="Empresa" />
+                                <TableColumn fx:id="colContactoProv" prefWidth="100.0" text="Contacto" />
+                                <TableColumn fx:id="colCategoriaProv" prefWidth="100.0" text="Categoría" />
+                            </columns>
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                            </columnResizePolicy>
+                        </TableView>
+                    </children>
+                </AnchorPane>
+
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                    <children>
+                        <Label layoutX="17.0" layoutY="20.0" text="Gestión de Proveedores">
+                            <font><Font name="Elephant" size="17.0" /></font>
+                        </Label>
+
+                        <Label layoutX="40.0" layoutY="70.0" text="ID Proveedor" />
+                        <TextField fx:id="txtIdProv" disable="true" layoutX="130.0" layoutY="66.0" prefWidth="100.0" />
+                        <Button layoutX="240.0" layoutY="66.0" mnemonicParsing="false" onAction="#fnBuscarProveedor" text="🔍" />
+
+                        <Label layoutX="40.0" layoutY="105.0" text="RNC / NIT" />
+                        <TextField fx:id="txtRncProv" layoutX="130.0" layoutY="101.0" prefWidth="150.0" />
+
+                        <Label layoutX="40.0" layoutY="140.0" text="Empresa" />
+                        <TextField fx:id="txtEmpresaProv" layoutX="130.0" layoutY="136.0" prefWidth="280.0" />
+
+                        <Label layoutX="40.0" layoutY="175.0" text="Dirección" />
+                        <TextField fx:id="txtDireccionProv" layoutX="130.0" layoutY="171.0" prefWidth="280.0" />
+
+                        <Label layoutX="40.0" layoutY="210.0" text="Tel. Empresa" />
+                        <TextField fx:id="txtTelProv" layoutX="130.0" layoutY="206.0" prefWidth="120.0" />
+
+                        <Label layoutX="260.0" layoutY="210.0" text="Correo" />
+                        <TextField fx:id="txtEmailProv" layoutX="305.0" layoutY="206.0" prefWidth="105.0" />
+
+                        <Label layoutX="40.0" layoutY="245.0" text="Contacto" />
+                        <TextField fx:id="txtContactoProv" layoutX="130.0" layoutY="241.0" prefWidth="120.0" promptText="Nombre persona" />
+
+                        <Label layoutX="260.0" layoutY="245.0" text="Tel. Cont." />
+                        <TextField fx:id="txtTelContactoProv" layoutX="315.0" layoutY="241.0" prefWidth="95.0" />
+
+                        <Label layoutX="38.0" layoutY="280.0" text="Estado" />
+                        <ComboBox fx:id="cmbEstadoProv" layoutX="130.0" layoutY="276.0" prefHeight="26.0" prefWidth="163.0" />
+
+                        <Label layoutX="40.0" layoutY="315.0" text="Notas" />
+                        <TextArea fx:id="taNotasProv" layoutX="130.0" layoutY="315.0" prefHeight="60.0" prefWidth="280.0" />
+
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="400.0" prefHeight="35.0" prefWidth="440.0" spacing="15.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                            <children>
+                                <Button mnemonicParsing="false" onAction="#fnGuardarProveedor" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: rgb(149, 222, 159, 0.5);" text="Guardar" textFill="#44865a" />
+                                <Button mnemonicParsing="false" onAction="#fnModificarProveedor" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: rgb(255, 244, 149, 0.5);" text="Editar" textFill="#9ea14d" />
+                                <Button mnemonicParsing="false" onAction="#fnBorrarProveedor" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: rgb(255, 130, 130, 0.5);" text="Borrar" textFill="#904545" />
+                                <Button mnemonicParsing="false" onAction="#fnLimpiarProv" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: rgb(126, 190, 224, 0.5);" text="Limpiar" textFill="#4da198" />
+                            </children>
+                        </HBox>
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+    </children>
+</AnchorPane>

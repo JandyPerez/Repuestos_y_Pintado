@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.puestosypintado.controladores.VentasController">
+    <children>
+        <SplitPane dividerPositions="0.5" prefHeight="500.0" prefWidth="850.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                    <children>
+                        <TableView fx:id="tvCarrito" prefHeight="400.0" prefWidth="200.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <columns>
+                                <TableColumn fx:id="colProducto" prefWidth="180.0" text="Producto" />
+                                <TableColumn fx:id="colCant" prefWidth="60.0" text="Cant." />
+                                <TableColumn fx:id="colSubtotal" prefWidth="100.0" text="Subtotal" />
+                            </columns>
+                        </TableView>
+                        <Label layoutX="14.0" layoutY="410.0" text="Impuestos (ITBIS):" AnchorPane.bottomAnchor="60.0" />
+                        <Label fx:id="lblImpuestos" layoutX="130.0" layoutY="410.0" text="\$ 0.00" AnchorPane.bottomAnchor="60.0" />
+                        <Label layoutX="14.0" layoutY="440.0" text="TOTAL A PAGAR:" AnchorPane.bottomAnchor="20.0">
+                            <font><Font name="System Bold" size="18.0" /></font>
+                        </Label>
+                        <Label fx:id="lblTotalCarrito" layoutX="180.0" layoutY="440.0" text="\$ 0.00" textFill="#44865a" AnchorPane.bottomAnchor="20.0">
+                            <font><Font name="System Bold" size="18.0" /></font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="504.0" prefWidth="422.0">
+                    <children>
+                        <Label layoutX="17.0" layoutY="15.0" text="Venta de Mostrador">
+                            <font><Font name="Elephant" size="17.0" /></font>
+                        </Label>
+
+                        <Label layoutX="30.0" layoutY="65.0" text="Cliente" />
+                        <ComboBox fx:id="cmbClienteVenta" layoutX="100.0" layoutY="61.0" prefWidth="280.0" promptText="Seleccionar o Consumidor Final" />
+
+                        <Separator layoutX="10.0" layoutY="105.0" prefWidth="400.0" />
+
+                        <Label layoutX="30.0" layoutY="130.0" text="Producto (SKU/Nombre)" />
+                        <TextField fx:id="txtBuscadorProd" layoutX="30.0" layoutY="155.0" prefWidth="200.0" />
+                        <Button layoutX="240.0" layoutY="155.0" mnemonicParsing="false" onAction="#fnVerificarStock" text="Verificar Stock" />
+
+                        <Label layoutX="30.0" layoutY="195.0" text="Stock Disp:" textFill="GREY" />
+                        <Label fx:id="lblStock" layoutX="100.0" layoutY="195.0" text="0" textFill="GREY" />
+
+                        <Label layoutX="30.0" layoutY="230.0" text="Cantidad" />
+                        <TextField fx:id="txtCantidad" layoutX="100.0" layoutY="226.0" prefWidth="80.0" />
+
+                        <Button layoutX="195.0" layoutY="226.0" mnemonicParsing="false" onAction="#fnAgregarAlCarrito" prefHeight="25.0" prefWidth="185.0" style="-fx-background-color: rgb(255, 244, 149, 0.5);" text="Agregar al Carrito" textFill="#9ea14d">
+                            <cursor><Cursor fx:constant="HAND" /></cursor>
+                        </Button>
+
+                        <Separator layoutX="10.0" layoutY="280.0" prefWidth="400.0" />
+
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="320.0" prefHeight="35.0" prefWidth="400.0" spacing="15.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                            <children>
+                                <Button mnemonicParsing="false" onAction="#fnProcesarPago" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: rgb(149, 222, 159, 0.5);" text="Cobrar e Imprimir" textFill="#44865a">
+                                    <font><Font name="System Bold" size="12.0" /></font>
+                                </Button>
+                                <Button mnemonicParsing="false" onAction="#fnCancelarVenta" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: rgb(255, 130, 130, 0.5);" text="Cancelar" textFill="#904545" />
+                            </children>
+                        </HBox>
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+    </children>
+</AnchorPane>

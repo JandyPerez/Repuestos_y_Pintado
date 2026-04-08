@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.puestosypintado.controladores.ClientesControlador">
+    <children>
+        <SplitPane dividerPositions="0.4" prefHeight="450.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                    <children>
+                        <TableView fx:id="tvclientes" layoutX="-8.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <columns>
+                                <TableColumn fx:id="colcedula" prefWidth="100.0" text="Cédula/RNC" />
+                                <TableColumn fx:id="colnombre" prefWidth="175.0" text="Nombre Cliente" />
+                            </columns>
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                            </columnResizePolicy>
+                        </TableView>
+                    </children>
+                </AnchorPane>
+
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                    <children>
+                        <Label layoutX="17.0" layoutY="20.0" text="Gestión de Clientes">
+                            <font><Font name="Elephant" size="17.0" /></font>
+                        </Label>
+
+                        <Label layoutX="40.0" layoutY="70.0" text="ID Cliente" />
+                        <TextField fx:id="txtid_Cliente" layoutX="120.0" layoutY="66.0" prefHeight="25.0" prefWidth="80.0" promptText="Auto" />
+                        <Button fx:id="btnBuscar" layoutX="210.0" layoutY="66.0" mnemonicParsing="false" onAction="#fnBuscarCliente" text="🔍" />
+
+                        <Label layoutX="40.0" layoutY="105.0" text="Nombre *" />
+                        <TextField fx:id="txtnombre" layoutX="120.0" layoutY="101.0" prefWidth="250.0" />
+
+                        <Label layoutX="40.0" layoutY="140.0" text="Cédula/RNC *" />
+                        <TextField fx:id="txtcedula" layoutX="120.0" layoutY="136.0" prefWidth="250.0" />
+
+                        <Label layoutX="40.0" layoutY="175.0" text="Teléfono *" />
+                        <TextField fx:id="txttelefono" layoutX="120.0" layoutY="171.0" prefWidth="250.0" />
+
+                        <Label layoutX="40.0" layoutY="210.0" text="Email" />
+                        <TextField fx:id="txtemail" layoutX="120.0" layoutY="206.0" prefWidth="250.0" promptText="correo@ejemplo.com" />
+
+                        <Label layoutX="40.0" layoutY="245.0" text="Dirección" />
+                        <TextField fx:id="txtdireccion" layoutX="120.0" layoutY="241.0" prefWidth="250.0" />
+
+                        <Label layoutX="40.0" layoutY="280.0" text="Estado" />
+                        <ComboBox fx:id="cmbestado" layoutX="120.0" layoutY="276.0" prefWidth="150.0" promptText="Activo/Inactivo" />
+
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="330.0" prefHeight="35.0" prefWidth="380.0" spacing="15.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                            <children>
+                                <Button mnemonicParsing="false" onAction="#fnGuardarCliente" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: rgb(149, 222, 159, 0.5);" text="Guardar" textFill="#44865a">
+                                    <cursor><Cursor fx:constant="HAND" /></cursor>
+                                </Button>
+                                <Button mnemonicParsing="false" onAction="#fnModificarCliente" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: rgb(255, 244, 149, 0.5);" text="Editar" textFill="#9ea14d">
+                                    <cursor><Cursor fx:constant="HAND" /></cursor>
+                                </Button>
+                                <Button mnemonicParsing="false" onAction="#fnBorrarCliente" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: rgb(255, 130, 130, 0.5);" text="Borrar" textFill="#904545">
+                                    <cursor><Cursor fx:constant="HAND" /></cursor>
+                                </Button>
+                                <Button mnemonicParsing="false" onAction="#fnLimpiar" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: rgb(126, 190, 224, 0.5);" text="Limpiar" textFill="#4da198">
+                                    <cursor><Cursor fx:constant="HAND" /></cursor>
+                                </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+    </children>
+</AnchorPane>

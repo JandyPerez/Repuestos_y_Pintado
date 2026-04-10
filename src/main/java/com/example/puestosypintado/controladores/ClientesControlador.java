@@ -22,7 +22,8 @@ public class ClientesControlador {
     @FXML private TextField txtemail;
     @FXML private TextField txtdireccion;
     @FXML private ComboBox<String> cmbestado;
-
+    @FXML private ComboBox<String> cmbprovincia;
+    @FXML private ComboBox<String> cmbsector;
     @FXML private TableView<Cliente> tvclientes;
     @FXML private TableColumn<Cliente, String> colcedula;
     @FXML private TableColumn<Cliente, String> colnombre;
@@ -30,6 +31,12 @@ public class ClientesControlador {
     public void initialize() {
         cmbestado.setItems(FXCollections.observableArrayList("Activo", "Inactivo"));
         cmbestado.getSelectionModel().selectFirst();
+
+        cmbprovincia.setItems(FXCollections.observableArrayList("Azua","Baoruco","Barahona","Dajabón","Distrito Nacional (Sede de la capital, Santo Domingo)","Duarte","El Seibo","Elías Piña","Espaillat","Hato Mayor","Hermanas Mirabal","Independencia","La Altagracia","La Romana","La Vega","María Trinidad Sánchez","Monseñor Nouel","Monte Cristi","Monte Plata","Pedernales","Peravia","Puerto Plata","Samaná","Sánchez Ramírez","San Cristóbal","San José de Ocoa","San Juan","San Pedro de Macorís","Santiago","Santiago Rodríguez","Santo Domingo","Valverde")); //Provincia
+        cmbprovincia.getSelectionModel().selectFirst();
+
+        cmbsector.setItems(FXCollections.observableArrayList("Activo", "Inactivo")); //Provincia
+        cmbsector.getSelectionModel().selectFirst();
 
         // Vincular columnas (Asegúrate de tener las Properties en tu clase Cliente)
         colcedula.setCellValueFactory(cellData -> cellData.getValue().cedulaProperty());

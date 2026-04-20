@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="850.0" style="-fx-background-color: #F0F5FB;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.puestosypintado.controladores.VentasController">
+
+    <children>
+
+        <!-- ══ HEADER BAR ══ -->
+        <Pane prefHeight="48.0" prefWidth="850.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%, #0066CC, #00AA99);" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label layoutX="20.0" layoutY="10.0" style="-fx-font-family: 'Impact'; -fx-font-size: 20px; -fx-text-fill: #FFFFFF; -fx-font-weight: bold;" text="🛒  VENTA DE MOSTRADOR" />
+                <Label layoutX="430.0" layoutY="17.0" style="-fx-font-family: 'Courier New'; -fx-font-size: 10px; -fx-text-fill: rgba(255,255,255,0.85); -fx-font-weight: bold;" text="FERRETERÍA — PUNTO DE VENTA" />
+            </children>
+        </Pane>
+
+        <!-- ══ MAIN SPLIT PANE ══ -->
+        <SplitPane dividerPositions="0.5" layoutY="48.0" prefHeight="446.0" prefWidth="850.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-padding: 0;" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="48.0">
+            <items>
+
+                <!-- ══ LEFT PANEL — CARRITO ══ -->
+                <AnchorPane minHeight="0.0" minWidth="0.0" style="-fx-background-color: #E8F1F8; -fx-border-color: #0066CC; -fx-border-width: 0 2 0 0;">
+                    <children>
+                        <Label layoutX="10.0" layoutY="10.0" style="-fx-font-family: 'Courier New'; -fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #0066CC;" text="▌ CARRITO" />
+
+                        <TableView fx:id="tvCarrito" layoutY="32.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #B3D9FF; -fx-border-width: 1; -fx-selection-bar: #0066CC; -fx-selection-bar-non-focused: #66B2FF; -fx-faint-focus-color: transparent;" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0">
+                            <columns>
+                                <TableColumn fx:id="colProducto" prefWidth="145.0" text="PRODUCTO" />
+                                <TableColumn fx:id="colCant" prefWidth="125.0" text="CANT." />
+                                <TableColumn fx:id="colSubtotal" prefWidth="150.0" text="SUBTOTAL" />
+                            </columns>
+                        </TableView>
+
+                        <!-- ── TOTALES ── -->
+                        <Pane style="-fx-background-color: #DDEEFA;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" prefHeight="80.0">
+                            <children>
+                                <Label layoutX="14.0" layoutY="12.0" style="-fx-font-family: 'Courier New'; -fx-font-size: 11px; -fx-text-fill: #003D99;" text="IMPUESTOS (ITBIS):" />
+                                <Label fx:id="lblImpuestos" layoutX="160.0" layoutY="12.0" text=" 0.00" style="-fx-font-family: 'Courier New'; -fx-font-size: 11px; -fx-text-fill: #003D99;" />
+                                <Label layoutX="14.0" layoutY="40.0" style="-fx-font-family: 'Courier New'; -fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #003D99;" text="TOTAL A PAGAR:" />
+                                <Label fx:id="lblTotalCarrito" layoutX="175.0" layoutY="38.0" text=" 0.00" style="-fx-font-family: 'Courier New'; -fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #00AA77;" />
+                            </children>
+                        </Pane>
+
+                    </children>
+                </AnchorPane>
+
+                <!-- ══ RIGHT PANEL — FORM ══ -->
+                <AnchorPane minHeight="0.0" minWidth="0.0" style="-fx-background-color: #F8FCFF;">
+                    <children>
+
+                        <!-- ── CLIENTE ── -->
+                        <Label layoutX="20.0" layoutY="18.0" style="-fx-font-family: 'Courier New'; -fx-font-size: 10px; -fx-font-weight: bold; -fx-text-fill: #0066CC;" text="CLIENTE" />
+                        <TextField fx:id="txtBuscadorCliente" layoutX="80.0" layoutY="12.0" prefHeight="28.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF; -fx-border-color: transparent transparent #0066CC transparent; -fx-border-width: 0 0 2 0; -fx-text-fill: #003D99; -fx-font-family: 'Courier New'; -fx-font-size: 12px;" />
+                        <Button layoutX="288.0" layoutY="12.0" onAction="#fnBuscar" prefHeight="28.0" prefWidth="34.0" style="-fx-background-color: #0066CC; -fx-text-fill: #FFFFFF; -fx-font-size: 13px; -fx-background-radius: 2;" text="🔍">
+                            <cursor><Cursor fx:constant="HAND" /></cursor>
+                        </Button>
+
+                        <!-- ── SEPARATOR 1 ── -->
+                        <Line endX="400.0" endY="0.0" layoutY="50.0" startX="20.0" startY="0.0" style="-fx-stroke: #0066CC; -fx-opacity: 0.3;" />
+
+                        <!-- ── SECCIÓN PRODUCTO ── -->
+                        <Label layoutX="20.0" layoutY="60.0" style="-fx-font-family: 'Courier New'; -fx-font-size: 10px; -fx-font-weight: bold; -fx-text-fill: #0066CC;" text="▌ AGREGAR PRODUCTO" />
+
+                        <Label layoutX="20.0" layoutY="82.0" style="-fx-font-family: 'Courier New'; -fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #000000;" text="SKU / NOMBRE" />
+                        <TextField fx:id="txtBuscadorProd" layoutX="20.0" layoutY="102.0" prefHeight="28.0" prefWidth="220.0" style="-fx-background-color: #FFFFFF; -fx-border-color: transparent transparent #D9E8F5 transparent; -fx-border-width: 0 0 2 0; -fx-text-fill: #1A1A1A; -fx-font-family: 'Courier New'; -fx-font-size: 12px;" />
+                        <Button layoutX="250.0" layoutY="102.0" onAction="#fnVerificarStock" prefHeight="28.0" prefWidth="120.0" style="-fx-background-color: #0066CC; -fx-text-fill: #FFFFFF; -fx-font-family: 'Courier New'; -fx-font-size: 11px; -fx-font-weight: bold; -fx-background-radius: 2;" text="✔  VERIFICAR STOCK">
+                            <cursor><Cursor fx:constant="HAND" /></cursor>
+                        </Button>
+
+                        <Label layoutX="20.0" layoutY="140.0" style="-fx-font-family: 'Courier New'; -fx-font-size: 11px; -fx-text-fill: #666666;" text="STOCK DISP." />
+                        <Label fx:id="lblStock" layoutX="100.0" layoutY="140.0" text="0" style="-fx-font-family: 'Courier New'; -fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #0066CC;" />
+
+                        <!-- ── CANTIDAD + AGREGAR ── -->
+                        <Label layoutX="20.0" layoutY="170.0" style="-fx-font-family: 'Courier New'; -fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #000000;" text="CANTIDAD" />
+                        <TextField fx:id="txtCantidad" layoutX="95.0" layoutY="166.0" prefHeight="28.0" prefWidth="80.0" style="-fx-background-color: #FFFFFF; -fx-border-color: transparent transparent #D9E8F5 transparent; -fx-border-width: 0 0 2 0; -fx-text-fill: #1A1A1A; -fx-font-family: 'Courier New'; -fx-font-size: 12px;" />
+                        <Button layoutX="188.0" layoutY="166.0" onAction="#fnAgregarAlCarrito" prefHeight="28.0" prefWidth="182.0" style="-fx-background-color: #00AA77; -fx-text-fill: #FFFFFF; -fx-font-family: 'Courier New'; -fx-font-size: 11px; -fx-font-weight: bold; -fx-background-radius: 2;" text="＋  AGREGAR AL CARRITO">
+                            <cursor><Cursor fx:constant="HAND" /></cursor>
+                        </Button>
+
+                        <!-- ── SEPARATOR 2 ── -->
+                        <Line endX="400.0" endY="0.0" layoutY="208.0" startX="20.0" startY="0.0" style="-fx-stroke: #0066CC; -fx-opacity: 0.3;" />
+
+                        <!-- ── ACTION BUTTONS ── -->
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="220.0" prefHeight="50.0" prefWidth="420.0" spacing="12.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                            <children>
+                                <Button mnemonicParsing="false" onAction="#fnProcesarPago" prefHeight="42.0" prefWidth="140.0" style="-fx-background-color: #00AA77; -fx-text-fill: #FFFFFF; -fx-font-family: 'Courier New'; -fx-font-size: 11px; -fx-font-weight: bold; -fx-border-color: #009966; -fx-border-width: 1; -fx-background-radius: 2; -fx-border-radius: 2;" text="💰  COBRAR E IMPRIMIR">
+                                    <cursor><Cursor fx:constant="HAND" /></cursor>
+                                </Button>
+                                <Button mnemonicParsing="false" onAction="#fnCancelarVenta" prefHeight="42.0" prefWidth="110.0" style="-fx-background-color: #FF6B6B; -fx-text-fill: #FFFFFF; -fx-font-family: 'Courier New'; -fx-font-size: 11.5px; -fx-font-weight: bold; -fx-border-color: #E63939; -fx-border-width: 1; -fx-background-radius: 2; -fx-border-radius: 2;" text="✖  CANCELAR">
+                                    <cursor><Cursor fx:constant="HAND" /></cursor>
+                                </Button>
+                            </children>
+                        </HBox>
+
+                    </children>
+                </AnchorPane>
+
+            </items>
+        </SplitPane>
+
+        <!-- ══ BOTTOM ACCENT STRIP ══ -->
+        <Pane prefHeight="6.0" prefWidth="850.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%, #0066CC, #00AA99);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+
+    </children>
+</AnchorPane>

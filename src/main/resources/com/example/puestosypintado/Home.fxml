@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="600.0" prefWidth="900.0"
+            xmlns="http://javafx.com/fxml/1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.puestosypintado.controladores.HomeController">
+
+    <left>
+        <VBox prefWidth="250.0" spacing="10.0" style="-fx-background-color: #E3F2FD; -fx-border-color: #BBDEFB; -fx-border-width: 0 1 0 0;" BorderPane.alignment="CENTER">
+            <children>
+                <VBox alignment="CENTER" prefHeight="100.0" spacing="5.0">
+                    <children>
+                        <Label text="SISTEMA" textFill="#1976D2">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                        </Label>
+                        <Label text="Gestión de Piezas" textFill="#64B5F6" />
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="20.0" top="20.0" />
+                    </VBox.margin>
+                </VBox>
+
+                <Button maxWidth="Infinity" onAction="#irCliente" styleClass="nav-button" text="👤 Clientes" />
+                <Button maxWidth="Infinity" onAction="#irEmpleado" styleClass="nav-button" text="👷 Empleados" />
+                <Button maxWidth="Infinity" onAction="#irProducto" styleClass="nav-button" text="📦 Productos" />
+                <Button maxWidth="Infinity" onAction="#irProveedor" styleClass="nav-button" text="🚚 Proveedores" />
+                <Button maxWidth="Infinity" onAction="#irUsuario" styleClass="nav-button" text="🔑 Usuarios" />
+                <Button maxWidth="Infinity" onAction="#irVehiculo" styleClass="nav-button" text="🚗 Vehículos" />
+            </children>
+            <padding>
+                <Insets left="15.0" right="15.0" />
+            </padding>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox alignment="CENTER" style="-fx-background-color: #F5F9FF;" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="Bienvenido al Panel Principal" textFill="#42A5F5">
+                    <font>
+                        <Font size="28.0" />
+                    </font>
+                </Label>
+                <Label text="Selecciona una opción a la izquierda para comenzar." textFill="#90A4AE" />
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

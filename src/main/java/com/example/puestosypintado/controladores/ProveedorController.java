@@ -148,11 +148,10 @@ public class ProveedorController {
             return;
         } else if (estado == null) {
             estado = "Activo";
-        } else if (existeRNC(rnc)){
+        } else if (existeRNC(rnc)) {
             JOptionPane.showMessageDialog(null, "EL RNC YA ESTA REGISTRADO");
             return;
         }
-
         String sql = "INSERT INTO Proveedor "
                 + "(rnc_nit, nombre_empresa, direccion, telefono_empresa, correo_empresa, "
                 + " nombre_contacto, telefono_contacto, categoria, notas, estado, sector, ciudad) "
